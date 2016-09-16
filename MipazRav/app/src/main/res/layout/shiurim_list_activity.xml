@@ -22,13 +22,5 @@
 
     </ListView>
 
-    <TextView
-        android:id="@+id/Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Parasha is the best"
-        android:textColor="@color/black_overlay"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        />
+
 </RelativeLayout>

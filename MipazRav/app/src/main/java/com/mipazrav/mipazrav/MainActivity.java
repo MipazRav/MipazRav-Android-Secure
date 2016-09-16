@@ -24,11 +24,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-/*
-TODO: change menu items add functionality to the menu items and the gridView buttons
- */
+
 public class MainActivity extends AppCompatActivity {
     private static String baseTitle;
+    private static int linkArrayPosition;
 
     public static String getBaseTitle() {
         return baseTitle;
@@ -36,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setBaseTitle(String title) {
         baseTitle = title;
+    }
+
+    public static int getLinkArrayPosition() {
+        return linkArrayPosition;
     }
 
     @Override
@@ -137,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
         BackgroundMail bm = new BackgroundMail(this);
         bm.setGmailUserName("mipazravapp@gmail.com");
-        bm.setGmailPassword(localInformation.emailPassword);
+        bm.setGmailPassword("2Yweoajws");
         bm.setMailTo(recipient);
         bm.setFormSubject("Mipaz Rav App Question");
         bm.setFormBody(body);
@@ -168,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         String messageForm = "Name: " + name + "\nPhone: " + telephone + "\nEmail Address: " + email
                 + "\nComment:" + comment;
 
-        if (emailInputValidation(editTextName, editTextEmail, editTextComment)){
+        if (emailInputValidation(editTextName, editTextEmail, editTextComment)) {
             sendEmail("joshuaegoldmeier@gmail.com", messageForm);
         } else {
             Toast.makeText(this, "Please fill out the required fields", Toast.LENGTH_SHORT).show();
@@ -180,15 +183,15 @@ public class MainActivity extends AppCompatActivity {
         String stringName = name.getText().toString();
         String stringEmail = email.getText().toString();
         String stringComment = comment.getText().toString();
-        if (stringName.equals("")){
+        if (stringName.equals("")) {
             name.setHint("* Name");
             //name.setHintTextColor(ContextCompat.getColor(this, R.color.requiredFields));
         }
-        if (stringEmail.equals("")){
+        if (stringEmail.equals("")) {
             email.setHint("* Email");
             //email.setHintTextColor(ContextCompat.getColor(this, R.color.requiredFields));
         }
-        if (stringComment.equals("")){
+        if (stringComment.equals("")) {
             comment.setHint("* Comment");
             //comment.setHintTextColor(ContextCompat.getColor(this, R.color.requiredFields));
         }
@@ -297,49 +300,44 @@ public class MainActivity extends AppCompatActivity {
     public void links_button_listener(View view) {
 
         Intent i = new Intent(this, LinksActivity.class);
-
+        int linkArrayPosition = 0;
         switch (view.getId()) {
 
             case R.id.Torah:
-
-                i.putExtra("POSITION", 0);
-                this.startActivity(i);
+                linkArrayPosition = 0;
+                //  i.putExtra("POSITION", 0);
+                //  this.startActivity(i);
                 break;
 
             case R.id.Hokma:
-                i.putExtra("POSITION", 1);
-                this.startActivity(i);
+                linkArrayPosition = 1;
+
                 break;
 
             case R.id.General:
+                linkArrayPosition = 2;
 
-                i.putExtra("POSITION", 2);
-                this.startActivity(i);
                 break;
 
             case R.id.Music:
+                linkArrayPosition = 3;
 
-                i.putExtra("POSITION", 3);
-                this.startActivity(i);
                 break;
 
             case R.id.Rabbi_Browser:
+                linkArrayPosition = 4;
 
-                i.putExtra("POSITION", 4);
-                this.startActivity(i);
                 break;
 
             case R.id.Recommended_this_Month:
+                linkArrayPosition = 5;
 
-                i.putExtra("POSITION", 5);
-                this.startActivity(i);
                 break;
 
-            default:
-                break;
         }
+        setLinkArrayPosition(linkArrayPosition);
 
-
+        this.startActivity(i);
     }
 
     public static void hideKeyboard(Context ctx) {
@@ -354,4 +352,7 @@ public class MainActivity extends AppCompatActivity {
         inputManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
+    public void setLinkArrayPosition(int linkArrayPosition) {
+        MainActivity.linkArrayPosition = linkArrayPosition;
+    }
 }

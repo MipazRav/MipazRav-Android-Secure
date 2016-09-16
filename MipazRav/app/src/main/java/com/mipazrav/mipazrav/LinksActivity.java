@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.Type;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -100,15 +101,7 @@ public class LinksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.links_activity);
         int position;
-        if (savedInstanceState == null) {
-            Bundle bundle = getIntent().getExtras();//try this with savedInstanceState
-            position = bundle.getInt("POSITION");
-            Log.d(String.valueOf(position), "this is the position");
-        } else {
-            savedInstanceState = getIntent().getExtras();
-            position = savedInstanceState.getInt("POSITION");
-            Log.d(String.valueOf(position), "this is the position");
-        }
+        position = MainActivity.getLinkArrayPosition();
         mPosition = position;
         checkSourcePosition();
         listView = (ListView) findViewById(R.id.lvItems);
@@ -116,7 +109,6 @@ public class LinksActivity extends AppCompatActivity {
 
         CustomerCriteriaAdapter mAdapter = new CustomerCriteriaAdapter(this, R.layout.custom_list_item, displayArray);
         listView.setAdapter(mAdapter);
-
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -169,6 +161,7 @@ public class LinksActivity extends AppCompatActivity {
         }
 
     }
+
     class CustomerCriteriaAdapter extends ArrayAdapter<String> {
 
         public CustomerCriteriaAdapter(Context context, int textViewResourceId, String[] objects) {
@@ -202,7 +195,7 @@ public class LinksActivity extends AppCompatActivity {
         }
 
         private void setTexviewsText(ViewHolder viewHolder, String result) {
-            Typeface TrajanProRegular = Typeface.createFromAsset(LinksActivity.this.getAssets(), "fonts/TrajanPro-Regular.ttf");
+            Typeface TrajanProRegular =  FontCache.get("fonts/TrajanPro-Regular.ttf", LinksActivity.this);
             viewHolder.name.setTypeface(TrajanProRegular);
 
             viewHolder.name.setText(result);

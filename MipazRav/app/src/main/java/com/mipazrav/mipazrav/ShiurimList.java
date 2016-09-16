@@ -197,7 +197,7 @@ public class ShiurimList extends AppCompatActivity implements ActivityCompat.OnR
 
             viewHolder.name.setText(result.getName());
 
-            Typeface TrajanProRegular = Typeface.createFromAsset(ShiurimList.this.getAssets(), "fonts/TrajanPro-Regular.ttf");
+            Typeface TrajanProRegular = FontCache.get("fonts/TrajanPro-Regular.ttf", ShiurimList.this);
             viewHolder.name.setTypeface(TrajanProRegular);
         }
 

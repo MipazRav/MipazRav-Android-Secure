@@ -3,6 +3,8 @@ package com.mipazrav.mipazrav;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -31,18 +33,25 @@ public class DownloadFromWebservice {
     public enum QueryType {SHIUR, AUDIO, PDF}
 
     public DownloadFromWebservice(Context c, QueryType q, String apiArg) {
+
         mQueryType = q;
         context = c;
         this.apiArg = apiArg;
-        new getDetails().execute();
+        if (!checkNetwork()) {
+            Toast.makeText(context, "Please Connect To Internet", Toast.LENGTH_LONG).show();
+
+        } else {
+            new getDetails().execute();
+        }
     }
 
     public void shiurimQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/subCategories?"+localInformation.authToken+"&" + apiArg);
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/subCategories?" + localInformation.AUTHTOKEN + "&" + apiArg);
         parseShiurimJSON(results);
     }
 
     private String establishConnection(String u) {
+
         StringBuilder stringBuilder = new StringBuilder();
         try {
             URL url = new URL(u);
@@ -105,7 +114,7 @@ public class DownloadFromWebservice {
                 if (recID.contains(".pdf")) {
                     PDF = true;
 
-                }else{
+                } else {
 
                 }
                 items.add(new Shiur(oneObject.getString("AudioName"), oneObject.getString("DownloadFile"), oneObject.getString("RecID")));
@@ -196,7 +205,7 @@ public class DownloadFromWebservice {
     }
 
     private void pdfQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?"+localInformation.authToken+"&categoryId=126");
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?" + localInformation.AUTHTOKEN + "&categoryId=126");
         parsePDFNames(results);
     }
 
@@ -209,7 +218,7 @@ public class DownloadFromWebservice {
                 // Pulling items from the array
                 items.add(new Shiur(oneObject.getString("AudioName"), oneObject.getString("DownloadFile"), oneObject.getString("RecID")));
             } catch (JSONException e) {
-                // Oops
+                Log.e(e.getMessage(), "JSON Exception");
             }
         }
         if (items.size() <= 0) {
@@ -224,11 +233,17 @@ public class DownloadFromWebservice {
 
 
     private void audioQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?"+localInformation.authToken+"&" + apiArg.substring(3));//substring to remove the 'sub' and just leave 'category' kludge
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?" + localInformation.AUTHTOKEN + "&" + apiArg.substring(3));//substring to remove the 'sub' and just leave 'category' kludge
         parseAudioNamesJSON(results);
     }
 
+    private boolean checkNetwork() {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        if (info == null) return false;
+        NetworkInfo.State network = info.getState();
+        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
+    }
+
 }
-
-
 
