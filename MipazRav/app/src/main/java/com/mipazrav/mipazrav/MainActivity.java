@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         BackgroundMail bm = new BackgroundMail(this);
         bm.setGmailUserName("mipazravapp@gmail.com");
-        bm.setGmailPassword("*********");
+        bm.setGmailPassword(localInformation.emailPassword);
         bm.setMailTo(recipient);
         bm.setFormSubject("Mipaz Rav App Question");
         bm.setFormBody(body);

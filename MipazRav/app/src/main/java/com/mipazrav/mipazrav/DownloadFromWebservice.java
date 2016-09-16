@@ -38,7 +38,7 @@ public class DownloadFromWebservice {
     }
 
     public void shiurimQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/subCategories?--THISISWHERETHEAUTHTOEKNGOES--&" + apiArg);
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/subCategories?"+localInformation.authToken+"&" + apiArg);
         parseShiurimJSON(results);
     }
 
@@ -196,7 +196,7 @@ public class DownloadFromWebservice {
     }
 
     private void pdfQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?--THISISWHERETHEAUTHTOEKNGOES--&categoryId=126");
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?"+localInformation.authToken+"&categoryId=126");
         parsePDFNames(results);
     }
 
@@ -224,7 +224,7 @@ public class DownloadFromWebservice {
 
 
     private void audioQuery() throws JSONException {
-        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?--THISISWHERETHEAUTHTOEKNGOES--&" + apiArg.substring(3));//substring to remove the 'sub' and just leave 'category' kludge
+        String results = establishConnection("http://www.mipazrav.com/webservice/api/Classes/AudioFileNames?"+localInformation.authToken+"&" + apiArg.substring(3));//substring to remove the 'sub' and just leave 'category' kludge
         parseAudioNamesJSON(results);
     }
 
