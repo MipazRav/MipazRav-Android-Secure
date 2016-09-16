@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+  >
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.mipazrav.mipazrav.ButtonPlus
+
+                style="@style/button"
+                android:id="@+id/Parsha"
+                android:text="Parsha"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Navi"
+                android:text="Navi"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.mipazrav.mipazrav.ButtonPlus
+
+                style="@style/button"
+                android:id="@+id/Megillah"
+                android:text="Megillah"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Tehillim"
+                android:text="Tehillim"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Holiday"
+                android:text="Holiday"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Prayer"
+                android:text="Prayer"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Literature"
+                android:text="Literature"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Nutshell"
+                android:text="Nutshell"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Philosophy"
+                android:text="Philosophy"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Halacha"
+                android:text="Halacha"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Derech_Etz_Chaim"
+                android:text="Derech Etz Chaim"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/People_in_Tanach"
+                android:text="People in Tanach"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Yahrzeit"
+                android:text="Yahrzeit"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Pirkei_Avot"
+                android:text="Pirkei Avot"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Oral_Torah"
+                android:text="Oral Torah"/>
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Ramchal"
+                android:text="Ramchal"/>
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <com.mipazrav.mipazrav.ButtonPlus
+                style="@style/button"
+                android:id="@+id/Kinyan_Torah"
+                android:text="Kinyan Torah"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>
+
+</ScrollView>

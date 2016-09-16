@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    \
+
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="requiredFields">#FF0000</color>
+
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#B6B6B6</color>
+
+    <color name="colorPrimary">#9E9E9E</color>
+    <color name="colorPrimaryDark">#00A0DC</color>
+    <color name="colorPrimaryLight">#F5F5F5</color>
+    <color name="colorAccent">#607d8b</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="icons">#212121</color>
+    <color name="divider">#B6B6B6</color>
+
+</resources>

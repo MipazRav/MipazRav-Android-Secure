@@ -1,0 +1,77 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:scrollbars="vertical"
+    android:fillViewport="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Name"
+
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:hint="Email"
+
+            />
+
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Telephone"
+            />
+
+        <Spinner
+            android:id="@+id/subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/Weight" />
+
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="Comment"
+            />
+
+        <!--<Button-->
+            <!--android:id="@+id/button_send"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight=".25"-->
+            <!--android:onClick="sendQuestion"-->
+            <!--android:text="Send" />-->
+
+        <com.mipazrav.mipazrav.ButtonPlus
+
+            style="@style/send_email_button"
+            android:id="@+id/button_send"
+            android:onClick="sendQuestion"
+            android:layout_weight=".25"
+            android:text="Send"/>
+
+    </LinearLayout>
+</ScrollView>

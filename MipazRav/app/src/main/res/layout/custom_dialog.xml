@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="180dp"
+    android:background="@drawable/curve_shape"
+    android:orientation="vertical" >
+
+
+        <Button
+            android:id="@+id/btn_yes"
+            style="@style/download_stream_button"
+            android:clickable="true"
+            android:text="DOWNLOAD"
+            />
+
+        <!--<View-->
+            <!--android:layout_height="2sp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:background="#00A0DC"/>-->
+
+        <Button
+            android:id="@+id/btn_no"
+            style="@style/download_stream_button"
+            android:clickable="true"
+            android:text="STREAM" />
+
+
+</LinearLayout>
