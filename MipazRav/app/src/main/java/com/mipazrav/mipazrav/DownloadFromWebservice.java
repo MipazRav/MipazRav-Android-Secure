@@ -38,7 +38,7 @@ public class DownloadFromWebservice {
         context = c;
         this.apiArg = apiArg;
         if (!checkNetwork()) {
-            Toast.makeText(context, "Please Connect To Internet", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Please Connect To Internet", Toast.LENGTH_SHORT).show();
 
         } else {
             new getDetails().execute();
