@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
@@ -93,12 +94,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void aboutClickHandler(MenuItem item) {
         Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_info_outline_black_24dp, null);
-        showTTTDialog(d, "ABOUT", getString(R.string.Designers));
+        showTTTDialog(d, "Contact Us", getString(R.string.Designers));
     }
 
     public void gitClickHandler(MenuItem item) {
-        Drawable d = ResourcesCompat.getDrawable(getResources(), R.drawable.github, null);
-        showTTTDialog(d, "GITHUB", "Fork us on Github!\n\nWe LOVE contributions");
+        String url = "http://www.theyeshivaworld.com/";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 
     private void showTTTDialog(Drawable icon, String title, String message) {
