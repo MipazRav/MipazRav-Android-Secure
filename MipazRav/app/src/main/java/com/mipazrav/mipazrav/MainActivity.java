@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gitClickHandler(MenuItem item) {
-        String url = "http://www.theyeshivaworld.com/";
+        String url = "https://github.com/MipazRav/MipazRav-Android-Secure.git";
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
