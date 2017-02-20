@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 + "\nComment:" + comment;
 
         if (emailInputValidation(editTextName, editTextEmail, editTextComment)) {
-            sendEmail("joshuaegoldmeier@gmail.com", messageForm);
+            sendEmail("joedweck@mac.com", messageForm);
         } else {
             Toast.makeText(this, "Please fill out the required fields", Toast.LENGTH_SHORT).show();
         }
